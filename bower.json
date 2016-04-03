@@ -5,7 +5,7 @@
   "authors": [
     "jay"
   ],
-   "directory": "app1/components/",
+  "directory": "app1/components/",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -17,6 +17,7 @@
     "jquery": "^2.2.2",
     "angular": "angularjs#^1.5.3",
     "requirejs": "^2.2.0",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "angular-route": "~1.5.3"
   }
 }
