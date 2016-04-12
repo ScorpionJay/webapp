@@ -1,11 +1,13 @@
 {
-  "name": "webapp",
-  "description": "webapp",
+  "name": "demo",
+  "description": "demo",
   "main": "index.js",
   "authors": [
     "jay"
   ],
-  "directory": "app1/components/",
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -14,10 +16,11 @@
     "tests"
   ],
   "devDependencies": {
-    "jquery": "^2.2.2",
-    "angular": "angularjs#^1.5.3",
-    "requirejs": "^2.2.0",
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
     "bootstrap": "^3.3.6",
-    "angular-route": "~1.5.3"
+    "jquery-validation": "^1.15.0",
+    "angular-ui": "~0.4.0",
+    "angular-ui-router": "~0.2.18"
   }
 }
