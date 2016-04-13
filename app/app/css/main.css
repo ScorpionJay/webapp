@@ -1,0 +1,46 @@
+/* header */
+header {
+    line-height: 40px;
+    background-color: #000;
+    color: #fff;
+}
+header div {
+    display:inline-block;
+}
+header div:nth-child(1){
+    color: red;
+    width: 10%;
+}
+header div:nth-child(2){
+    color: red;
+    text-align: center;
+    width: 70%
+}
+header div:nth-child(3){
+    color: white;
+    text-align: right;
+    width: 10%
+}
+
+
+/* footer */
+footer {    
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #FFF;
+    border-top: 1px solid #DDD8CE;
+    background-color: #000;
+}
+
+footer a {
+	width: 33%;
+   	float: left;
+   	cursor: pointer;
+    color: #FFF;
+    text-decoration: none;
+}

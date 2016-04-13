@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title></title>
+
+	<script src="../lib/angular/angular.js"></script>
+	<script src="../lib/angular-ui-router/angular-ui-router.js"></script>
+	<script type="text/javascript">
+		 var myApp = angular.module('myApp', ['ui.router']);
+
+		 myApp.config(function($stateProvider, $urlRouterProvider) {
+  //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/index");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('index', {
+      url: "/index",
+      views:{
+        viewA:{templateUrl:'index.viewA.html'},
+        viewB:{templateUrl:'index.viewB.html'}
+      }
+    })
+    .state('route1', {
+      url: "/route1",
+      views:{
+        viewA:{templateUrl:'route1.viewA.html'},
+        viewB:{templateUrl:'route1.viewB.html'}
+      }
+    })
+    .state('route2', {
+      url: "/route2",
+      views:{
+        viewA:{templateUrl:'route2.viewA.html'},
+        viewB:{templateUrl:'route2.viewB.html'}
+      }
+    });
+});
+
+	</script>
+</head>
+<body ng-app="myApp">
+  <div ui-view='viewA'></div>
+  <div ui-view='viewB'></div>
+
+  <a ui-sref='index'>index</a>
+  <a ui-sref='route1'>Route 1</a>
+  <a ui-sref='route2'>Route 2</a>
+</html>
