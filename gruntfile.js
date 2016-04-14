@@ -5,12 +5,11 @@ module.exports = function(grunt) {
 
   	// time how long tasks. can help when optimizing build times
  	require('time-grunt')(grunt);
-var path = require('path');
+	var path = require('path');
 
   	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
-
 
 		// concat
 		concat: {
@@ -41,8 +40,8 @@ var path = require('path');
 		    }
 		  },
 
-		  // watch
-		   watch:{
+		// watch
+		watch:{
 		      livereload:{
 		    		options:{
 		    			livereload:'<%= connect.options.livereload %>' //this port must be same with the connect livereload port
@@ -52,10 +51,10 @@ var path = require('path');
 		    			'app/**/*.*'
 		    		]
 				}
-			},	
+		},	
 
-			// connect
-			connect:{
+		// connect
+		connect:{
 			      options:{
 			        livereload:35729
 			      },
@@ -67,14 +66,14 @@ var path = require('path');
 			           base:['app']
 			        }
 			      }
-		    },
+		},
 
 
-		    // bower
-		     bower: {
+		// bower
+		bower: {
 			      install: {
 			        options: {
-			          targetDir: 'app/lib',
+			          targetDir: 'app/js/lib',
 			          layout: 'byType' ,
 			          install: true,
 			          verbose: false,
@@ -83,8 +82,38 @@ var path = require('path');
 			          bowerOptions: {}
 			        }
 			      }
-			 }
-
+		},
+			
+		// requirejs
+		requirejs: {
+			build:{
+				options:{
+						appDir: './app',
+						dir: './build',
+						baseUrl: 'js/',
+						paths: {
+							angular:'lib/angular/angular'
+							,route:'lib/angular-ui-router/angular-ui-router'
+							,util:'util'
+							,main:'main'
+						},
+						shim:{
+							route: {
+								deps: ['angular'],
+							},
+							angular: {
+								exports: 'angular'
+							},
+							util: {
+								exports: 'util'
+							}
+						},
+						 modules: [{
+							name: 'main'
+						}]
+				}
+			}
+		}
 
 
 
@@ -96,5 +125,7 @@ var path = require('path');
   	grunt.registerTask('serve', [ 'connect:server','watch']);
 
   	grunt.registerTask('b', [ 'bower']);
+	
+	grunt.registerTask('r', [ 'requirejs']);
 
 };

@@ -1,0 +1,61 @@
+
+body {
+    margin:0;
+    padding:0
+}
+header {
+    line-height: 40px;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+}
+header div {
+    display:inline-block;
+}
+header div:nth-child(1){
+    color: white;
+    width: 10%;
+    padding-left: 5px;
+    font-size: 20px;
+}
+header div:nth-child(2){
+    color: white;
+    text-align: center;
+    width: 70%
+}
+header div:nth-child(3){
+    color: white;
+    text-align: right;
+    width: 10%
+}
+.container {
+    margin: 5px;
+}
+.container .search input{
+    width: 70%;
+}
+.container .search button{
+    width: 20%;
+    border: 0px black solid;
+    height: 23px;
+    background-color: #91A9D4;
+}
+footer {    
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #FFF;
+    border-top: 1px solid #DDD8CE;
+    background-color: #000;
+}
+footer a {
+	width: 33%;
+   	float: left;
+   	cursor: pointer;
+    color: #FFF;
+    text-decoration: none;
+}
