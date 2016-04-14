@@ -1,0 +1,31 @@
+
+<div>
+	<input ng-model='keyword'/>
+	<button ng-click='search()'>search</button>
+</div>
+
+
+<div ng-repeat='o in bookList'>
+	
+		<div>
+			<label>书名:</label><span>{{o.origin_title}}</span>
+		</div>
+		<div>
+			<label>作者:</label><span>{{o.author}}</span>
+		</div>
+		<div>
+			<img ng-src="{{o.image}}">
+		</div>
+		<div>
+			<label>出版社:</label><span>{{o.publisher}}</span>
+		</div>
+		<div>
+			<label>价格:</label><span>{{o.price}}</span>
+		</div>
+		<div>
+			<label>页码:</label><span>{{o.pages}}</span>
+		</div>
+		<a ng-href="{{'#/book/'+o.id}}"  >详情</a>
+		<hr>
+	
+</div>

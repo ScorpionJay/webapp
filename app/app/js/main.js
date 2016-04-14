@@ -5,13 +5,24 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 $urlRouterProvider.otherwise("/book");
 // Now set up the states
 $stateProvider
-  .state('book', {
+  .state('book_list', {
     url: "/book",
     views:{
       header:{templateUrl:'view/header.html'},
       container:{
-        templateUrl:'view/book.list.html',
+        templateUrl:'view/bookList.html',
         controller:'bookController'
+      },
+      footer:{templateUrl:'view/footer.html'}
+    }
+  })
+  .state('book_detail', {
+    url: "/book/:id",
+    views:{
+      header:{templateUrl:'view/headerBack.html'},
+      container:{
+        templateUrl:'view/bookDetail.html',
+        controller:'bookDetailController'
       },
       footer:{templateUrl:'view/footer.html'}
     }
@@ -30,7 +41,7 @@ $stateProvider
   .state('music', {
     url: "/music",
     views:{
-      header:{templateUrl:'view/header.html'},
+      header:{templateUrl:''},
       container:{
         templateUrl:'music/container.html',
         controller:'musicController'
@@ -41,7 +52,7 @@ $stateProvider
 });
 
 // Constant
-myApp.constant('ServiceConfig', {
+myApp.constant('Config', {
   book_search: 'https://api.douban.com/v2/book/search',
   book_search_id: 'https://api.douban.com/v2/book/',
   music_search: 'https://api.douban.com/v2/music/search',
@@ -50,13 +61,14 @@ myApp.constant('ServiceConfig', {
   movie_search_id: 'https://api.douban.com/v2/movie/subject/'
 });
 
-
-myApp.controller('bookController',function($rootScope,ServiceConfig,$http){
+// book controller
+myApp.controller('bookController',function($rootScope,$scope,Config,$http){
   console.log('bookController');
-  console.log(ServiceConfig.book_search);
-  var keywords = '速度';
-  $http.jsonp(ServiceConfig.book_search + '?callback=searchBookList&count=10&q=' + keywords);
+  console.log(Config.book_search);
+  var keywords = 'angular';
+  $http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + keywords);
   window.searchBookList = function(data){
+        console.log(data);
         if(data.books.length){
           $rootScope.isNoLoaded = false;
         }
@@ -74,19 +86,24 @@ myApp.controller('bookController',function($rootScope,ServiceConfig,$http){
           };
           list.push(item);
         }
-        $rootScope.bookList = list;
-        console.log($rootScope.bookList);
-      };
+        $scope.bookList = list;
+        console.log($scope.bookList);
+  };
 
-  // $http.get(ServiceConfig.book_search).
-  // success(function(data, status, headers, config) {
-  //   console.log('data');
-  //   console.log(data);
-  // }).
-  // error(function(data, status, headers, config) {
-  //   console.log(data);
-  // });
+  $scope.search = function(){
+    $http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
+  };
 
+});
+
+// book detail controller
+myApp.controller('bookDetailController',function($scope,Config,$http,$stateParams){
+  console.log($stateParams.id);
+  $http.jsonp( Config.book_search_id + $stateParams.id +'?callback=callback_bookDetail&' );
+  window.callback_bookDetail = function(data){
+    console.log(data);
+    $scope.data = data;
+  };
 
 });
 
