@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       server:{
         options:{
            open:true,// auto open default bowser
-           base:['app']
+           base:['build']
         }
       }
     },
@@ -123,7 +123,48 @@ module.exports = function(grunt) {
           bowerOptions: {}
         }
       }
-    }
+    },
+	
+	requirejs: {
+				build:{
+				  	options:{
+				  	
+			 				appDir: './src',
+						  	dir: './build',
+							baseUrl: 'js/',
+							paths: {
+								jquery: 'lib/jquery/jquery'
+								,angular:'lib/angular/angular'
+								,route:'lib/angular-route/angular-route'
+								,bootstrap:'lib/bootstrap/js/bootstrap'
+								,util:'common/util'
+								,app:'common/app'
+								,main:'common/main'
+								
+							},
+
+							shim:{
+								route: {
+									deps: ['angular'],
+								},
+								bootstrap: {
+									deps: ['jquery'],
+								},
+								angular: {
+									exports: 'angular'
+								},
+								util: {
+									exports: 'util'
+								},
+							},
+
+							 //modules: [{
+				            //             name: 'main'
+				             //        }]
+						}
+				}
+			}
+	
 
   });
 
@@ -165,6 +206,9 @@ module.exports = function(grunt) {
       'bower'
   ]);
   
+  grunt.registerTask('r',[
+      'requirejs'
+  ]);
 
   grunt.registerTask('build',[
     'clean',
