@@ -4,7 +4,7 @@ define(['angular','util'],function(angular,util){
 
 	var homeModule = angular.module('accoutModule',['serviceModule']);
 
-	homeModule.controller('accoutCtr',function($scope,httpService){
+	homeModule.controller('accoutCtr',['$scope','httpService',function($scope,httpService){
 
 		console.log('accoutCtr ...');
 
@@ -23,6 +23,6 @@ define(['angular','util'],function(angular,util){
 			console.log(data);
 		});
 
-	});
+	}]);
 
 });

@@ -4,12 +4,12 @@ define(['angular'],function(){
 
 	var homeModule = angular.module('homeModule',[]);
 
-	homeModule.controller('homeCtr',function($scope){
+	homeModule.controller('homeCtr',['$scope',function($scope){
 
 		console.log('homeCtr ...');
 
 		$scope.name = "jay";
 
-	});
+	}]);
 
 });

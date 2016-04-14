@@ -128,9 +128,8 @@ module.exports = function(grunt) {
 	requirejs: {
 				build:{
 				  	options:{
-				  	
 			 				appDir: './src',
-						  	dir: './build',
+						  dir: './build',
 							baseUrl: 'js/',
 							paths: {
 								jquery: 'lib/jquery/jquery'
@@ -140,7 +139,6 @@ module.exports = function(grunt) {
 								,util:'common/util'
 								,app:'common/app'
 								,main:'common/main'
-								
 							},
 
 							shim:{
@@ -157,10 +155,9 @@ module.exports = function(grunt) {
 									exports: 'util'
 								},
 							},
-
-							 //modules: [{
-				            //             name: 'main'
-				             //        }]
+							 modules: [{
+		                        name: 'main'
+		                    }]
 						}
 				}
 			}

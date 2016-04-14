@@ -8,7 +8,7 @@ define(['angular','route','home/homeController'
 		'homeModule',
 		'accoutModule','loginModule','serviceModule']);
 
-	app.config(function($routeProvider, $locationProvider){
+	app.config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
 
 		$routeProvider
 			.when('/home',{
@@ -29,7 +29,7 @@ define(['angular','route','home/homeController'
 			  enabled: false,
 			  requireBase: false
 			});
-	});
+	}]);
 
 
 });
