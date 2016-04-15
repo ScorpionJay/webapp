@@ -104,14 +104,18 @@ define(['angular','route','IScroll'],function(angular,router,IScroll){
 			  };
 			  list.push(item);
 			}
-			$rootScope.bookList = list;
-			console.log($rootScope.bookList);
+			$scope.data = list;
+
+			//console.log($rootScope.bookList);
 
 			var wrapper = document.getElementById('wrapper');
 			console.log(wrapper);
     		var myScroll = new IScroll(wrapper);
 	  };
-
+		$scope.data = [];
+		  for (var i = 0; i < 10; i++) {
+		  	$scope.data.push({id:i,name:'jay' + i});
+		  };
 	  $scope.search = function(){
 	  	if($scope.keyword == '' || $scope.keyword == undefined){
 	  		$rootScope.bookList = {};
@@ -137,9 +141,33 @@ define(['angular','route','IScroll'],function(angular,router,IScroll){
 	  console.log('moviceController');
 	});
 
-	myApp.controller('musicController',function(){
+	myApp.controller('musicController',['$scope',function($scope){
 	  console.log('musicController');
-	});
 
+	  $scope.data = [];
+	  for (var i = 0; i < 100; i++) {
+	  	$scope.data.push({id:i,name:'jay' + i});
+	  };
+
+		var wrapper = document.getElementById('wrapper');
+		console.log(wrapper);
+		var myScroll = new IScroll(wrapper);
+	}]);
+
+	myApp.directive('ngScroll', function() {
+    return {
+		replace: false,
+		restrict: 'A',
+        link: function(scope, element, attr){
+            scope.$watch(attr.ngScroll, function(value){
+				new IScroll(document.querySelector('#wrapper'), {
+	   	      	  snap: true,
+	   	      	  momentum: true,
+	   	      	  hScrollbar: true
+	   	    });
+        });	
+       }
+    };
+});
 
 });

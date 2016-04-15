@@ -15,5 +15,6 @@ js/main.js
 ----------------
 js/lib/angular/angular.js
 js/lib/angular-ui-router/angular-ui-router.js
+js/lib/iscroll/build/iscroll.js
 js/app.js
 js/main.js

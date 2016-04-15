@@ -95,6 +95,7 @@ module.exports = function(grunt) {
 							angular:'lib/angular/angular'
 							,route:'lib/angular-ui-router/angular-ui-router'
 							,util:'util'
+							,IScroll:'lib/iscroll/build/iscroll'
 							,main:'main'
 						},
 						shim:{
@@ -106,7 +107,10 @@ module.exports = function(grunt) {
 							},
 							util: {
 								exports: 'util'
-							}
+							},
+							IScroll: {
+					            exports: 'IScroll'
+					        }
 						},
 						 modules: [{
 							name: 'main'

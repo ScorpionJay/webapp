@@ -30,9 +30,7 @@ requirejs(['angular','app','IScroll'],
 function   (angular,app,IScroll) {
 	angular.bootstrap(document, ['app']);
 
-    console.log(IScroll);
-    var wrapper = document.getElementById('wrapper');
-    var myScroll = new IScroll("#wrapper");
+
 
 // var myScroll;
 

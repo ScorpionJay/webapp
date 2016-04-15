@@ -1,40 +1,52 @@
-<div class="container"  id='wrapper' ng-keypress="search()">
-	
-	<!-- search -->
-	<div class="search">
-		<input ng-model='keyword' placeholder="请输入书名" />
-		<button ng-click='search()'>search</button>
+ <div class="search">
+			<input ng-model='keyword' placeholder="请输入书名" />
+			<button ng-click='search()'>search</button>
+		</div>
+
+ <div id="wrapper" class="container" ng-scroll>
+	<div id="scroller">
+<!-- 		<ul id="thelist" ng-repeat='d in data'>
+			<li>d</li>
+			
+		</ul> -->
+
+<!-- 		<div ng-repeat='d in data'>
+			<div>{{d}}</div>
+		</div> -->
+
+		
+
+		<!-- list -->
+		<div class='item' ng-repeat='o in data'>
+			<a ui-sref='bookDetail({id:o.id})'>
+
+				<div class='fl'>
+					<img ng-src="{{o.image}}" class='list-img' />
+				</div>	
+				<div class='fl list_content'>
+					<div>
+						<label>书名:</label><span>{{o.origin_title}}</span>
+					</div>
+					<div>
+						<label>作者:</label><span>{{o.author}}</span>
+					</div>
+					<div>
+						<label>出版社:</label><span>{{o.publisher}}</span>
+					</div>
+					<div>
+						<label>价格:</label><span>{{o.price}}</span>
+					</div>
+					<div>
+						<label>页码:</label><span>{{o.pages}}</span>
+					</div> 
+				</div>
+			</a>
+		</div>
+
+
+		<!-- no result -->
+		<div ng-if='!data.length ' class='no-result'>没有结果</div>
+
+
 	</div>
-
-	<!-- list -->
-	<div class='item' ng-repeat='o in bookList'>
-		<a ui-sref='bookDetail({id:o.id})'>
-
-			<div class='fl'>
-				<img ng-src="{{o.image}}" class='list-img' />
-			</div>	
-			<div class='fl list_content'>
-				<div>
-					<label>书名:</label><span>{{o.origin_title}}</span>
-				</div>
-				<div>
-					<label>作者:</label><span>{{o.author}}</span>
-				</div>
-				<div>
-					<label>出版社:</label><span>{{o.publisher}}</span>
-				</div>
-				<div>
-					<label>价格:</label><span>{{o.price}}</span>
-				</div>
-				<div>
-					<label>页码:</label><span>{{o.pages}}</span>
-				</div> 
-			</div>
-
-		</a>
-	</div>
-
-	<!-- no result -->
-	<div ng-if='!bookList.length ' class='no-result'>没有结果</div>
-
-</div><!--end of container-->
+</div>

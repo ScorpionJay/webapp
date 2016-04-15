@@ -1,7 +1,26 @@
 
 body {
     margin:0;
-    padding:0
+    padding:0;
+    background-color:#E4E1E1;
+    font-size: 14px;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+#wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    padding-bottom: 40px;
+    background: #ccc;
+    overflow: hidden;
 }
 header {
     line-height: 40px;
@@ -29,16 +48,52 @@ header div:nth-child(3){
     width: 10%
 }
 .container {
-    margin: 5px;
+   margin: 5px;
 }
 .container .search input{
     width: 70%;
+    height: 18px;
+    padding: 5px;
+    background-color: #F2F6F9;
+    border: 1px solid white;
 }
 .container .search button{
     width: 20%;
     border: 0px black solid;
-    height: 23px;
+    height: 30px;
     background-color: #91A9D4;
+}
+.container .no-result {
+    font-size: 30px;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin-left: -55px;
+    color: #484B7B;
+}
+.container .item {
+    display: block;
+    margin-top:5px;
+    height:150px;
+    border-bottom: 1px solid #E6E6E6;
+    background-color: #FFF;
+    min-width:290px;
+}
+.item:last-child {
+    margin-bottom: 50px;
+}
+.container  .list-img {
+    width: 104px;
+    height: 140px;
+}
+.list_content{
+    width: 180px;
+    height: 144px;
+    margin: 5px;
+}
+.container a {
+    text-decoration: none;
+    color:black;
 }
 footer {    
 	position: fixed;
