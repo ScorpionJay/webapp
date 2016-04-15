@@ -83,9 +83,33 @@ var path = require('path');
 			          bowerOptions: {}
 			        }
 			      }
-			 }
+			 },
 
+			requirejs: {
+				build:{
+				  	options:{
+				  	
+			 				appDir: './src',
+			 				baseUrl:'.',
+						  	dir: './build',
+							paths:{
+									jquery:'lib/jquery/jquery',
+									angular:'lib/angular/angular',
+									route:'lib/angular-route/angular-route',
+									'main' : 'js/common/main'
+								},
+							shim:{
+								'route':{
+									deps:['angular']
+								}
+							},
 
+							 modules: [{
+				                         name: 'main'
+				                     }]
+						}
+				}
+			}
 
 
 	});
@@ -96,5 +120,9 @@ var path = require('path');
   	grunt.registerTask('serve', [ 'connect:server','watch']);
 
   	grunt.registerTask('b', [ 'bower']);
+
+  	grunt.registerTask('r', [ 'requirejs']);
+
+  	
 
 };

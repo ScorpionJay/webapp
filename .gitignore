@@ -3,3 +3,4 @@ node_modules
 app/lib
 dest
 dist
+build
