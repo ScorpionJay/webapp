@@ -84,7 +84,7 @@ define(['angular','route'],function(){
 	  console.log('bookController');
 	  console.log(Config.book_search);
 	  var keywords = 'angular';
-	  //$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + keywords);
+	  $http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + keywords);
 	  window.searchBookList = function(data){
 			console.log(data);
 			if(data.books.length){
@@ -109,7 +109,11 @@ define(['angular','route'],function(){
 	  };
 
 	  $scope.search = function(){
-		$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
+	  	if($scope.keyword == '' || $scope.keyword == undefined){
+	  		$rootScope.bookList = {};
+	  	}else{
+			$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
+	  	}
 	  };
 
 	}]);
