@@ -6,6 +6,7 @@ requirejs.config({
         angular:'lib/angular/angular'
         ,route:'lib/angular-ui-router/angular-ui-router'
         ,util:'util'
+        ,IScroll:'lib/iscroll/build/iscroll'
     },
     shim:{
     	route: {
@@ -16,13 +17,29 @@ requirejs.config({
         },
         util: {
             exports: 'util'
+        },
+        IScroll: {
+            exports: 'IScroll'
         }
     }
 
 });
 
 // Start the main app logic.
-requirejs(['angular','app'],
-function   () {
+requirejs(['angular','app','IScroll'],
+function   (angular,app,IScroll) {
 	angular.bootstrap(document, ['app']);
+
+    console.log(IScroll);
+    var wrapper = document.getElementById('wrapper');
+    var myScroll = new IScroll("#wrapper");
+
+// var myScroll;
+
+// function loaded () {
+//     myScroll = new IScroll('#wrapper', { mouseWheel: true });
+// }
+
+// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
 });

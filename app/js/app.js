@@ -1,4 +1,4 @@
-define(['angular','route'],function(){
+define(['angular','route','IScroll'],function(angular,router,IScroll){
 
 	var myApp = angular.module('app', ['ui.router']);
 
@@ -106,6 +106,10 @@ define(['angular','route'],function(){
 			}
 			$rootScope.bookList = list;
 			console.log($rootScope.bookList);
+
+			var wrapper = document.getElementById('wrapper');
+			console.log(wrapper);
+    		var myScroll = new IScroll(wrapper);
 	  };
 
 	  $scope.search = function(){
