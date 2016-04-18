@@ -36,7 +36,7 @@ define(['angular','common/Config','IScroll','common/service'],function(angular,C
 
 			var wrapper = document.getElementById('wrapper');
 			console.log(wrapper);
-    		var myScroll = new IScroll(wrapper);
+    		var myScroll = new IScroll(wrapper,{click:true ,mouseWheel: true});
 	  };
 		$scope.data = [];
 		  for (var i = 0; i < 10; i++) {
