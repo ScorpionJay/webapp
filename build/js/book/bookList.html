@@ -1,32 +1,28 @@
- <div class="search">
-	<input ng-model='keyword' placeholder="请输入书名" />
-	<button ng-click='search()'>search</button>
+<div class="input-group mt5 plr2">
+      <input type="text" class="form-control" placeholder="Search for..."  ng-model='keyword'>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click='search()'>Go!</button>
+      </span>
 </div>
 
- <div id="wrapper" class="container" ng-scroll>
+<div id="wrapper"  style="padding: 2px; margin-top: 18px;">
 	<div id="scroller">
 		<div class='item' ng-repeat='o in data'>
 			<a ui-sref='bookDetail({id:o.id})'>
-
-				<div class='fl'>
-					<img ng-src="{{o.image}}" class='list-img' />
-				</div>	
-				<div class='fl list_content'>
-					<div>
-						<label>书名:</label><span>{{o.origin_title}}</span>
+				<img ng-src="{{o.image}}" class='list-img col-xs-5'/>
+				<div class="col-xs-6 mt5">
+					<div class="row">
+						<label class="col-xs-5 small">书名:</label>
+						<span class="col-xs-12 small" ng-bind=' o.origin_title | wordSub:10'></span>
 					</div>
-					<div>
-						<label>作者:</label><span>{{o.author}}</span>
+					<div class="row mt5">
+						<label class="col-xs-5 small">作者:</label>
+						<span class="col-xs-12 small" ng-bind='o.author | wordSub:10'></span>
 					</div>
-					<div>
-						<label>出版社:</label><span>{{o.publisher}}</span>
+					<div class="row mt5">
+						<label class="col-xs-5 small">价格:</label>
+						<span class="col-xs-12 small" ng-bind="o.price + ' 元'"></span>
 					</div>
-					<div>
-						<label>价格:</label><span>{{o.price}}</span>
-					</div>
-					<div>
-						<label>页码:</label><span>{{o.pages}}</span>
-					</div> 
 				</div>
 			</a>
 		</div>

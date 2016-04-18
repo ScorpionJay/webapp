@@ -1,0 +1,1 @@
+define(["angular"],function(n){var r=n.module("app.fillter",[]);r.filter("wordSub",function(){return function(n,r){return n?n.length>r?n.substring(0,r)+"...":n:void 0}})});

@@ -2,4 +2,6 @@ bower_components
 node_modules
 dest
 dist
-app/js/lib
+app/js/lib/*
+/app/js/lib/angular-ui-router
+/app/js/lib/angular/*.js

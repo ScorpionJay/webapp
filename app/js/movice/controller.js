@@ -9,31 +9,12 @@ define(['angular','config','IScroll','common/service'],function(angular,Config,I
 	  	console.log('moviceController');
 
 
-	  	$scope.keyword = '谁的青春不迷茫';
+	  	$scope.keyword = '速度与激情';
 		//$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + keywords);
 		HttpService.querywithParams(Config.movie_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
 		window.searchBookList = function(data){
 			console.log(data);
-			// if(data.books.length){
-			//   $rootScope.isNoLoaded = false;
-			// }
-			// var list = [];
-			// for(var i = 0; i < data.books.length; i++){
-			//   var book = data.books[i];
-			//   var item = {
-			// 	id: book.id,
-			// 	image: book.image,
-			// 	origin_title: book.title || '书名未共享',
-			// 	author: book.author[0] || '作者未知',
-			// 	publisher: book.publisher || '出版社未知',
-			// 	price: book.price.split('.')[0] || '未知',
-			// 	pages: book.pages
-			//   };
-			//   list.push(item);
-			// }
-			 $scope.data = data;
-
-			// //console.log($rootScope.bookList);
+			$scope.data = data;
 
 			var wrapper = document.getElementById('wrapper');
 			console.log(wrapper);
@@ -51,10 +32,7 @@ define(['angular','config','IScroll','common/service'],function(angular,Config,I
 			HttpService.querywithParams(Config.movie_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
 			}
 		};
-
-
-	 
-
+		
 	}]);
 
 	

@@ -100,7 +100,8 @@ module.exports = function(grunt) {
 							,config:'common/config'
 							,main:'main'
 							,bootstrap:'lib/bootstrap/bootstrap'
-							 ,jquery:'lib/jquery/jquery'
+							,jquery:'lib/jquery/jquery'
+							,resource:'lib/angular-resource/angular-resource'
 						},
 						shim:{
 							route: {
@@ -117,6 +118,9 @@ module.exports = function(grunt) {
 					        },
 					        bootstrap:{
 					            deps:['jquery']
+					        },
+					        resource: {
+					            deps: ['angular'],
 					        }
 						},
 						 modules: [{
