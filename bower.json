@@ -17,14 +17,12 @@
   ],
   "devDependencies": {
     "angular": "^1.5.3",
-    "angular-route": "^1.5.3",
     "bootstrap": "^3.3.6",
-    "jquery-validation": "^1.15.0",
-    "angular-ui": "~0.4.0",
     "angular-ui-router": "~0.2.18"
   },
   "dependencies": {
     "requirejs": "~2.2.0",
-    "iscroll": "^5.2.0"
+    "iscroll": "^5.2.0",
+    "angular-resource": "^1.5.3"
   }
 }

@@ -5,11 +5,19 @@ requirejs.config({
     paths: {
         angular:'lib/angular/angular'
         ,route:'lib/angular-ui-router/angular-ui-router'
+        ,resource:'lib/angular-resource/angular-resource'
         ,util:'util'
         ,IScroll:'lib/iscroll/build/iscroll'
+        ,config:'common/config'
+        ,app:'common/app'
+        ,bootstrap:'lib/bootstrap/bootstrap'
+        ,jquery:'lib/jquery/jquery'
     },
     shim:{
     	route: {
+            deps: ['angular'],
+        },
+        resource: {
             deps: ['angular'],
         },
         angular: {
@@ -20,24 +28,22 @@ requirejs.config({
         },
         IScroll: {
             exports: 'IScroll'
+        },
+        bootstrap:{
+            deps:['jquery']
         }
     }
 
 });
 
-// Start the main app logic.
-requirejs(['angular','app','IScroll'],
-function   (angular,app,IScroll) {
-	angular.bootstrap(document, ['app']);
 
-
-
-// var myScroll;
-
-// function loaded () {
-//     myScroll = new IScroll('#wrapper', { mouseWheel: true });
-// }
-
-// document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
+requirejs(['angular','app','jquery','bootstrap'],
+function   (angular,App) {
+	angular.bootstrap(document, ['App']);
+    // 禁止右键
+    document.oncontextmenu = function(){
+        return false;
+    };
+    document.ondragstart=function(){"return false"} //禁止鼠标拖动
+    document.onselectstart=function(){"return false"}//禁止选中文字
 });

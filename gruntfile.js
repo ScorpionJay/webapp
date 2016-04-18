@@ -96,7 +96,11 @@ module.exports = function(grunt) {
 							,route:'lib/angular-ui-router/angular-ui-router'
 							,util:'util'
 							,IScroll:'lib/iscroll/build/iscroll'
+							,app:'common/app'
+							,config:'common/config'
 							,main:'main'
+							,bootstrap:'lib/bootstrap/bootstrap'
+							 ,jquery:'lib/jquery/jquery'
 						},
 						shim:{
 							route: {
@@ -110,6 +114,9 @@ module.exports = function(grunt) {
 							},
 							IScroll: {
 					            exports: 'IScroll'
+					        },
+					        bootstrap:{
+					            deps:['jquery']
 					        }
 						},
 						 modules: [{

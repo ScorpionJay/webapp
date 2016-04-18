@@ -1,0 +1,1 @@
+define(["angular","IScroll"],function(r,e){var n=r.module("app.directive",["ui.router"]);n.directive("ngScroll",function(){return{replace:!1,restrict:"A",link:function(r,n,c){r.$watch(c.ngScroll,function(r){new e(document.querySelector("#wrapper"),{snap:!0,momentum:!0,hScrollbar:!0})})}}})});

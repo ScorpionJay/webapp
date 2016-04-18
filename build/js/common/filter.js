@@ -1,0 +1,1 @@
+define(["angular"],function(e){var t=e.module("app.fillter",[]);t.fillter("appTest",function(){return"test"})});

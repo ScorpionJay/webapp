@@ -1,0 +1,1 @@
+define(["angular","config","IScroll"],function(o,e,l){"use strict";var n=o.module("movice.controller",["Config"]);n.controller("moviceController",["$rootScope","$scope","Config","$http",function(o,e,l,n){console.log("moviceController")}])});
