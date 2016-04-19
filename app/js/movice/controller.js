@@ -8,31 +8,29 @@ define(['angular','config','IScroll','common/service'],function(angular,Config,I
 	module.controller('moviceController',['$rootScope','$scope','Config','$http','HttpService',function($rootScope,$scope,Config,$http,HttpService){
 	  	console.log('moviceController');
 
-
-	  	$scope.keyword = '速度与激情';
-		//$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + keywords);
-		HttpService.querywithParams(Config.movie_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
 		window.searchBookList = function(data){
 			console.log(data);
 			$scope.data = data;
-
 			var wrapper = document.getElementById('wrapper');
-			console.log(wrapper);
-			var myScroll = new IScroll(wrapper,{click:true,mouseWheel: true});
+
+			var myScroll = new IScroll(wrapper,{click:true});
+			setTimeout(function () {
+			        myScroll.refresh();
+			    }, 0);
 		};
-		$scope.data = [];
-		  for (var i = 0; i < 10; i++) {
-		  	$scope.data.push({id:i,name:'jay' + i});
-		  };
+
 		$scope.search = function(){
 			if($scope.keyword == '' || $scope.keyword == undefined){
-				$rootScope.bookList = {};
+				$rootScope.data = {};
 			}else{
 			//$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
-			HttpService.querywithParams(Config.movie_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
+			HttpService.querywithParams(Config.movie_search + '?callback=searchBookList&count='+ Config.count +'&q=' + $scope.keyword);
 			}
 		};
-		
+
+		$scope.keyword = '速度与激情';
+		$scope.search();
+
 	}]);
 
 	

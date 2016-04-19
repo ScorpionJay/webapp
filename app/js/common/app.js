@@ -68,12 +68,15 @@ define(['angular','route','book/controller','movice/controller','music/controlle
 			case 'book':
 			case 'bookDetail':
 				$rootScope.tab[0] = true;
+				$rootScope.tabName = 'Book';
 				break;
 			case 'movice':
 				$rootScope.tab[1] = true;
+				$rootScope.tabName = 'Movic';
 				break;
 			case 'music':
 				$rootScope.tab[2] = true;
+				$rootScope.tabName = 'Music';
 				break;
 			};
 

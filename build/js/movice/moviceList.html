@@ -8,7 +8,7 @@
 <div id="wrapper"  style="padding: 2px; margin-top: 18px;">
 	<div id="scroller">
 		<div class='item' ng-repeat='o in data.subjects'>
-			<a ui-sref='bookDetail({id:o.id})'>
+			<a ng-href='{{o.alt}}'>
 				<img ng-src="{{o.images.large}}" class='list-img col-xs-5'/>
 				<div class="col-xs-6 mt5">
 					<div class="row">
@@ -27,6 +27,6 @@
 			</a>
 		</div>
 		<!-- no result -->
-		
+		<div ng-if='!data.subjects.length ' class='no-result'>没有结果</div>
 	</div>
 </div>

@@ -6,7 +6,9 @@ define(['angular'],function(){
 			music_search: 'https://api.douban.com/v2/music/search',
 			music_search_id: 'https://api.douban.com/v2/music/',
 			movie_search: 'https://api.douban.com/v2/movie/search',
-			movie_search_id: 'https://api.douban.com/v2/movie/subject/'
+			movie_search_id: 'https://api.douban.com/v2/movie/subject/',
+
+			count: 10
 	});
 
 });

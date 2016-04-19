@@ -10,7 +10,7 @@ define(['angular','common/Config','IScroll','common/service'],function(angular,C
 	  console.log(Config.book_search);
 	  $scope.keyword = '谁的青春不迷茫';
 	  //$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + keywords);
-	  HttpService.querywithParams(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
+	  //HttpService.querywithParams(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
 	  window.searchBookList = function(data){
 			console.log(data);
 			if(data.books.length){
@@ -32,24 +32,55 @@ define(['angular','common/Config','IScroll','common/service'],function(angular,C
 			}
 			$scope.data = list;
 
-			//console.log($rootScope.bookList);
-
 			var wrapper = document.getElementById('wrapper');
 			console.log(wrapper);
-    		var myScroll = new IScroll(wrapper,{click:true ,mouseWheel: true});
+    		var myScroll = new IScroll(wrapper,{click:true ,mouseWheel: true,dataset:  $scope.search ,cacheSize: 1000});
+    		// http://lab.cubiq.org/iscroll5/demos/infinite/ 
+    		setTimeout(function () {
+			        myScroll.refresh();
+			    }, 0);
+    		myScroll.on('scrollEnd', function(){
+    			console.log('end scroll...');
+
+    			if(this.y === 0){
+    				$('#msg').modal();
+    			}else if(this.y === 100){
+
+    			}
+    			//myScroll.destroy();
+    			setTimeout(function () {
+			        myScroll.refresh();
+			    }, 0);
+    		});
+    		myScroll.on('scrollStart',function(){
+    			console.log('start scroll...');
+    		});
 	  };
-		$scope.data = [];
-		  for (var i = 0; i < 10; i++) {
-		  	$scope.data.push({id:i,name:'jay' + i});
-		  };
+		// $scope.data = [];
+		//   for (var i = 0; i < 10; i++) {
+		//   	$scope.data.push({id:i,name:'jay' + i});
+		//   };
 	  $scope.search = function(){
 	  	if($scope.keyword == '' || $scope.keyword == undefined){
 	  		$rootScope.bookList = {};
 	  	}else{
 			//$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
 			HttpService.querywithParams(Config.book_search + '?callback=searchBookList&count=10&q=' + $scope.keyword);
-	  	}
+	  	};
+
+
+		// function requestData (start, count) {
+		// 	ajax('dataset.php?start=' + +start + '&count=' + +count, {
+		// 		callback: function (data) {
+		// 			data = JSON.parse(data);
+		// 			myScroll.updateCache(start, data);
+		// 		}
+		// 	});
+		// }
+
 	  };
+
+	  $scope.search();
 
 	}]);
 
@@ -61,6 +92,12 @@ define(['angular','common/Config','IScroll','common/service'],function(angular,C
 	  window.callback_bookDetail = function(data){
 		console.log(data);
 		$scope.data = data;
+		var wrapper = document.getElementById('wrapper');
+		console.log(wrapper);
+    	var myScroll = new IScroll(wrapper);
+    	setTimeout(function () {
+			        myScroll.refresh();
+			    }, 0);
 	  };
 
 	}]);
