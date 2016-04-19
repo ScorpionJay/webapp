@@ -33,12 +33,40 @@ module.exports = function(grunt) {
 		    my_target: {
 		      files: [{
 		          expand: true,
-		          cwd: 'src/',
+		          cwd: 'build/',
 		          src: '**/*.js',
-		          dest: 'dist/js'
+		          dest: 'build/'
 		      }]
 		    }
 		  },
+
+		  // html
+		  htmlmin: {                                    
+		      minify: {                                     
+		        options: {                        
+		          removeComments: true,
+		          collapseWhitespace: true
+		        },
+		        files: [{
+		          expand:true,
+		          cwd:'build',
+		          src:'**/*.html',
+		          dest:'build'
+		        }]
+		      }
+		    },
+
+		 // image
+		 imagemin: {                          
+	      minify: {                         
+	        files: [{
+	          expand: true,                 
+	          cwd: 'build',                   
+	          src: ['**/*.{png,jpg,gif,ico}'],   
+	          dest: 'build'                  
+	        }]
+	      }
+	    },
 
 		// watch
 		watch:{
@@ -63,7 +91,7 @@ module.exports = function(grunt) {
 			           port:9000,
 			           hostname:'localhost',
 			           open:true,// auto open default bowser
-			           base:['app']
+			           base:'./'
 			        }
 			      }
 		},
@@ -73,7 +101,7 @@ module.exports = function(grunt) {
 		bower: {
 			      install: {
 			        options: {
-			          targetDir: 'app/js/lib',
+			          targetDir: 'app/lib',
 			          layout: 'byType' ,
 			          install: true,
 			          verbose: false,
@@ -90,39 +118,49 @@ module.exports = function(grunt) {
 				options:{
 						appDir: './app',
 						dir: './build',
-						baseUrl: 'js/',
-						paths: {
-							angular:'lib/angular/angular'
-							,route:'lib/angular-ui-router/angular-ui-router'
-							,util:'util'
-							,IScroll:'lib/iscroll/build/iscroll'
-							,app:'common/app'
-							,config:'common/config'
-							,main:'main'
-							,bootstrap:'lib/bootstrap/bootstrap'
-							,jquery:'lib/jquery/jquery'
-							,resource:'lib/angular-resource/angular-resource'
-						},
-						shim:{
-							route: {
-								deps: ['angular'],
-							},
-							angular: {
-								exports: 'angular'
-							},
-							util: {
-								exports: 'util'
-							},
-							IScroll: {
+						baseUrl: '.',
+						optimizeCss: "standard",
+						logLevel: 0,
+						writeBuildTxt: true,
+						optimize: "uglify2",
+					    paths: {
+					        angular:'lib/angular/angular'
+					        ,route:'lib/angular-ui-router/angular-ui-router'
+					        ,resource:'lib/angular-resource/angular-resource'
+					        ,animate:'lib/angular-animate/angular-animate'
+					        ,IScroll:'lib/iscroll/build/iscroll'
+					        ,bootstrap:'lib/bootstrap/bootstrap'
+					        ,jquery:'lib/jquery/jquery'
+					        ,app:'js/common/app'
+					        ,config:'js/common/config'
+					        ,service:'js/common/service'
+					        ,fillter:'js/common/fillter'
+					        ,util:'js/util'
+					        ,main:'js/main'
+					    },
+					    shim:{
+					    	route: {
+					            deps: ['angular'],
+					        },
+					        resource: {
+					            deps: ['angular'],
+					        },
+					        animate: {
+					            deps: ['angular'],
+					        },
+					        angular: {
+					            exports: 'angular'
+					        },
+					        util: {
+					            exports: 'util'
+					        },
+					        IScroll: {
 					            exports: 'IScroll'
 					        },
 					        bootstrap:{
 					            deps:['jquery']
-					        },
-					        resource: {
-					            deps: ['angular'],
-					        }
-						},
+					    	}
+					    },
 						 modules: [{
 							name: 'main'
 						}]
@@ -142,5 +180,11 @@ module.exports = function(grunt) {
   	grunt.registerTask('b', [ 'bower']);
 	
 	grunt.registerTask('r', [ 'requirejs']);
+
+	grunt.registerTask('html', [ 'htmlmin']);
+
+	grunt.registerTask('image', [ 'imagemin']);
+
+	grunt.registerTask('build', [ 'html','image','uglify']);
 
 };

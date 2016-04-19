@@ -1,4 +1,4 @@
-define(['angular','config','IScroll','common/service'],function(angular,Config,IScroll){
+define(['angular','config','IScroll','service'],function(angular,Config,IScroll){
 	
 	'use strict';
 	
@@ -7,6 +7,8 @@ define(['angular','config','IScroll','common/service'],function(angular,Config,I
 	// music controller
 	module.controller('musicController',['$rootScope','$scope','Config','$http','HttpService',function($rootScope,$scope,Config,$http,HttpService){
 	 	console.log('musicController');
+
+	 	$scope.pageClass = 'page-contact';
 
 		window.musicList = function(data){
 			console.log(data);

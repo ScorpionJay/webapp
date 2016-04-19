@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<head>
-	<title></title>
-	<style type="text/css">
-	body,ul,li {
+<!DOCTYPE html><html><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"><head><title></title><style type="text/css">body,ul,li {
 	padding:0;
 	margin:0;
 	border:0;
@@ -90,35 +84,7 @@ body {
 
 #scroller li > a {
 	display:block;
-}
-	</style>
-</head>
-<body>
-
-	<div id="header"><a href="http://cubiq.org/iscroll">iScroller Test</a></div>
-<div ng-app='App'>
-    <div ng-controller='Controller'>
-   <div id="wrapper" ng-scroll>
-	<div id="scroller">
-		<ul id="thelist" ng-repeat='d in data'>
-			<li><a href="123" style="width:100%;display:block">dddddddddddd</a></li>
-			
-		</ul>
-	</div>
-</div>
-	</div>
-</div>
-<div id="footer"></div>
-
-
-</body>
-
-
-<script src="js/lib/angular/angular.js"></script>
-<script src="js/lib/iscroll/build/iscroll.js"></script>
-<script type="text/javascript">
-	
-	angular.module('ng-scroller', []).directive('ngScroll', function() {
+}</style></head><body><div id="header"><a href="http://cubiq.org/iscroll">iScroller Test</a></div><div ng-app="App"><div ng-controller="Controller"><div id="wrapper" ng-scroll><div id="scroller"><ul id="thelist" ng-repeat="d in data"><li><a href="123" style="width:100%;display:block">dddddddddddd</a></li></ul></div></div></div></div><div id="footer"></div></body><script src="js/lib/angular/angular.js"></script><script src="js/lib/iscroll/build/iscroll.js"></script><script type="text/javascript">angular.module('ng-scroller', []).directive('ngScroll', function() {
     return {
 		replace: false,
 		restrict: 'A',
@@ -145,8 +111,4 @@ App.controller('Controller', function($scope){
 	};
 	
 
-});
-
-</script>
-
-</html>
+});</script></html>

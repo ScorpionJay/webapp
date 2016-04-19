@@ -1,4 +1,4 @@
-define(['angular','config','IScroll','common/service'],function(angular,Config,IScroll){
+define(['angular','config','IScroll','service'],function(angular,Config,IScroll){
 	
 	'use strict';
 	
@@ -7,6 +7,8 @@ define(['angular','config','IScroll','common/service'],function(angular,Config,I
 	// movice controller
 	module.controller('moviceController',['$rootScope','$scope','Config','$http','HttpService',function($rootScope,$scope,Config,$http,HttpService){
 	  	console.log('moviceController');
+
+	  	 $scope.pageClass = 'page-about';
 
 		window.searchBookList = function(data){
 			console.log(data);

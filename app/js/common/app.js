@@ -1,6 +1,6 @@
-define(['angular','route','book/controller','movice/controller','music/controller','common/service','common/fillter'],function(){
+define(['angular','route','animate','js/book/controller','js/movice/controller','js/music/controller','service','fillter'],function(){
 
-	var app = angular.module('App', ['ui.router','book.controller','movice.controller','music.controller','app.service','app.fillter']);
+	var app = angular.module('App', ['ui.router','ngAnimate','book.controller','movice.controller','music.controller','app.service','app.fillter']);
 
 	app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/book");

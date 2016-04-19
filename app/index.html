@@ -4,12 +4,12 @@
   <title>嗨</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="js/lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
     <div ui-view="header"></div>
-    <div ui-view="container" ui-sref-opts="{reload: true}" ></div>
+    <div ui-view="container" ui-sref-opts="{reload: true}" class="page {{ pageClass }}"></div>
     <div ui-view="footer"></div>
 	<div class="spinner" ng-show='isLoading'>
 	  <div class="rect1"></div>
@@ -31,5 +31,5 @@
 	</div><!-- /.modal -->
 
 </body>
-<script src="js/lib/requirejs/require.js" data-main="js/main.js"></script>
+<script src="lib/requirejs/require.js" data-main="js/main.js"></script>
 </html>

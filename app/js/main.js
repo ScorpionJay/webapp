@@ -1,23 +1,30 @@
 requirejs.config({
 
-    baseUrl: 'js/',
+    baseUrl: '.',
 
     paths: {
         angular:'lib/angular/angular'
         ,route:'lib/angular-ui-router/angular-ui-router'
         ,resource:'lib/angular-resource/angular-resource'
-        ,util:'util'
+        ,animate:'lib/angular-animate/angular-animate'
         ,IScroll:'lib/iscroll/build/iscroll'
-        ,config:'common/config'
-        ,app:'common/app'
         ,bootstrap:'lib/bootstrap/bootstrap'
         ,jquery:'lib/jquery/jquery'
+        ,app:'js/common/app'
+        ,config:'js/common/config'
+        ,service:'js/common/service'
+        ,fillter:'js/common/fillter'
+        ,util:'js/util'
+        ,main:'js/main'
     },
     shim:{
     	route: {
             deps: ['angular'],
         },
         resource: {
+            deps: ['angular'],
+        },
+        animate: {
             deps: ['angular'],
         },
         angular: {

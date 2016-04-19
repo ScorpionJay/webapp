@@ -1,4 +1,4 @@
-define(['angular','common/Config','IScroll','common/service'],function(angular,Config,IScroll){
+define(['angular','config','IScroll','service'],function(angular,Config,IScroll){
 	
 	'use strict';
 	
@@ -7,6 +7,9 @@ define(['angular','common/Config','IScroll','common/service'],function(angular,C
 	// book controller
 	module.controller('bookController',['$rootScope','$scope','Config','$http','HttpService',function($rootScope,$scope,Config,$http,HttpService){
 	  console.log('bookController');
+
+	   $scope.pageClass = 'page-home';
+
 	  console.log(Config.book_search);
 	  $scope.keyword = '谁的青春不迷茫';
 	  //$http.jsonp(Config.book_search + '?callback=searchBookList&count=10&q=' + keywords);
@@ -43,7 +46,7 @@ define(['angular','common/Config','IScroll','common/service'],function(angular,C
     			console.log('end scroll...');
 
     			if(this.y === 0){
-    				$('#msg').modal();
+    				//$('#msg').modal();
     			}else if(this.y === 100){
 
     			}
@@ -87,6 +90,7 @@ define(['angular','common/Config','IScroll','common/service'],function(angular,C
 
 	// book detail controller
 	module.controller('bookDetailController',['$scope','Config','$http','$stateParams',function($scope,Config,$http,$stateParams){
+	  $scope.pageClass = 'page-about';
 	  console.log($stateParams.id);
 	  $http.jsonp( Config.book_search_id + $stateParams.id +'?callback=callback_bookDetail&' );
 	  window.callback_bookDetail = function(data){
