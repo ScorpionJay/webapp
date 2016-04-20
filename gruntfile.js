@@ -91,7 +91,7 @@ module.exports = function(grunt) {
 			           port:9000,
 			           hostname:'localhost',
 			           open:true,// auto open default bowser
-			           base:'./'
+			           base:'app'
 			        }
 			      }
 		},
@@ -111,63 +111,6 @@ module.exports = function(grunt) {
 			        }
 			      }
 		},
-			
-		// requirejs
-		requirejs: {
-			build:{
-				options:{
-						appDir: './app',
-						dir: './build',
-						baseUrl: '.',
-						optimizeCss: "standard",
-						logLevel: 0,
-						writeBuildTxt: true,
-						optimize: "uglify2",
-					    paths: {
-					        angular:'lib/angular/angular'
-					        ,route:'lib/angular-ui-router/angular-ui-router'
-					        ,resource:'lib/angular-resource/angular-resource'
-					        ,animate:'lib/angular-animate/angular-animate'
-					        ,IScroll:'lib/iscroll/build/iscroll'
-					        ,bootstrap:'lib/bootstrap/bootstrap'
-					        ,jquery:'lib/jquery/jquery'
-					        ,app:'js/common/app'
-					        ,config:'js/common/config'
-					        ,service:'js/common/service'
-					        ,fillter:'js/common/fillter'
-					        ,util:'js/util'
-					        ,main:'js/main'
-					    },
-					    shim:{
-					    	route: {
-					            deps: ['angular'],
-					        },
-					        resource: {
-					            deps: ['angular'],
-					        },
-					        animate: {
-					            deps: ['angular'],
-					        },
-					        angular: {
-					            exports: 'angular'
-					        },
-					        util: {
-					            exports: 'util'
-					        },
-					        IScroll: {
-					            exports: 'IScroll'
-					        },
-					        bootstrap:{
-					            deps:['jquery']
-					    	}
-					    },
-						 modules: [{
-							name: 'main'
-						}]
-				}
-			}
-		}
-
 
 
 	});
@@ -175,11 +118,9 @@ module.exports = function(grunt) {
 
   	grunt.registerTask('default', ['uglify','concat']);
 
-  	grunt.registerTask('serve', [ 'connect:server','watch']);
+  	grunt.registerTask('s', [ 'connect:server','watch']);
 
   	grunt.registerTask('b', [ 'bower']);
-	
-	grunt.registerTask('r', [ 'requirejs']);
 
 	grunt.registerTask('html', [ 'htmlmin']);
 

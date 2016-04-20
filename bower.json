@@ -1,30 +1,23 @@
 {
-  "name": "demo",
-  "description": "demo",
+  "name": "react",
+  "description": "webapp",
   "main": "index.js",
   "authors": [
     "jay"
   ],
   "license": "MIT",
-  "moduleType": [],
-  "homepage": "",
+  "homepage": "https://github.com/ScorpionJay/webapp",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "app/js/lib",
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "angular": "^1.5.3",
-    "bootstrap": "^3.3.6",
-    "angular-ui-router": "~0.2.18"
-  },
   "dependencies": {
-    "requirejs": "~2.2.0",
-    "iscroll": "^5.2.0",
-    "angular-resource": "^1.5.3",
-    "angular-ui-bootstrap": "^1.3.2",
-    "angular-animate": "^1.5.5"
+    "react": "^15.0.1",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3"
   }
 }
