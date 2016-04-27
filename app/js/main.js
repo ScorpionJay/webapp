@@ -48,9 +48,7 @@ requirejs(['angular','app','jquery','bootstrap'],
 function   (angular,App) {
 	angular.bootstrap(document, ['App']);
     // 禁止右键
-    document.oncontextmenu = function(){
-        return false;
-    };
+    document.oncontextmenu = function(){return false};
     document.ondragstart=function(){"return false"} //禁止鼠标拖动
     document.onselectstart=function(){"return false"}//禁止选中文字
 });
